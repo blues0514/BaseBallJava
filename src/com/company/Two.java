@@ -1,5 +1,5 @@
 package com.company;
 
-// Add Test
+// Add Error Test
 public class Two {
 }
