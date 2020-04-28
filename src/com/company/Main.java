@@ -1,7 +1,6 @@
 package com.company;
 
 public class Main {
-    public static final int DIGIT = 3;
 
     public static void main(String[] args) {
         int[] answers = Module.generateAnswers();
@@ -33,9 +32,9 @@ public class Main {
      * @param guesses 추측 값
      */
     private static void calculateResult(Result result, int[] answers, int[] guesses) {
-        for (int i = 0; i < DIGIT; i++) {
-            int j = (i + 1) % DIGIT; // (2+1) % 3 = 0
-            int k = (i + 2) % DIGIT; // (2+2) % 3 = 1
+        for (int i = 0; i < Module.DIGIT; i++) {
+            int j = (i + 1) % Module.DIGIT; // (2+1) % 3 = 0
+            int k = (i + 2) % Module.DIGIT; // (2+2) % 3 = 1
 
             if (guesses[i] == answers[i])
                 result.strike++;
@@ -47,7 +46,7 @@ public class Main {
     }
 
     private static boolean isGoodResult(Result result) {
-        return result.strike == DIGIT;
+        return result.strike == Module.DIGIT;
     }
 
     private static void printResult(Result result) {
