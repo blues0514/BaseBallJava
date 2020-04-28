@@ -16,64 +16,62 @@ public class Main {
         Random random = new Random();
 
         while (true) {
-            for (int i = 0; i < answers.length; i++)
-                answers[i] = random.nextInt(MAX_NUMBER);
+            for (int i = 0; i < DIGIT; i++)
+                answers[i] = random.nextInt(MAX_NUMBER); // liternal
 
             if (answers[0] != answers[1] && answers[1] != answers[2] && answers[2] != answers[0])
                 break;
         }
 
-        System.out.println("[정답]");
-        for (int i = 0; i < answers.length; i++) {
-            System.out.print(answers[i] + " ");
-        }
-        System.out.println();
+        printNumbers("[정답]", answers);
 
 
         int tryCount = 0;
 
-        while (true) {
+        while (true){
             tryCount++;
 
             // 추측을 입력한다.
-            int guesses[] = new int[DIGIT];
+            int[] guesses = new int[DIGIT];
 
             Scanner scanner = new Scanner(System.in);
-            for (int i = 0; i < guesses.length; i++)
+            for (int i = 0; i < DIGIT; i++)
                 guesses[i] = scanner.nextInt();
 
-
-            System.out.println("[추측]");
-            for (int i = 0; i < guesses.length; i++)
-                System.out.print(guesses[i] + " ");
-            System.out.println();
+            printNumbers("[추측]", guesses);
 
 
             // 결과를 계산한다.
-            int strike = 0;
-            int ball = 0;
-            int out = 0;
+            Result result = new Result();
 
             for (int i = 0; i < DIGIT; i++) {
                 int j = (i + 1) % DIGIT; // (2+1) % 3 = 0
                 int k = (i + 2) % DIGIT; // (2+2) % 3 = 1
+
                 if (guesses[i] == answers[i])
-                    strike++;
+                    result.strike++;
                 else if (guesses[i] == answers[j] || guesses[i] == answers[k])
-                    ball++;
+                    result.ball++;
                 else
-                    out++;
+                    result.out++;
             }
 
-            System.out.println("S:" + strike + " B:" + ball + " O:" + out);
+            System.out.println("S:" + result.strike + " B:" + result.ball + " O:" + result.out);
 
             // 3S가 아니면 돌아간다.
-            if (strike == DIGIT)
+            if (result.strike == DIGIT)
                 break;
         }
 
 
-        // 도전 횟수를 출력 한다.
-        System.out.println("도전 횟수 : " + tryCount);
+        // 도전횟수를 출력한다.
+        System.out.println("도전횟수 : " + tryCount);
+    }
+
+    private static void printNumbers(String prefix, int[] numbers) {
+        System.out.println(prefix);
+        for (int i = 0; i < DIGIT; i++)
+            System.out.print(numbers[i] + " ");
+        System.out.println();
     }
 }
