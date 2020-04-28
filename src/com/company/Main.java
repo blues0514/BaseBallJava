@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static final int MAX_NUMBER = 10;
+    public static final int DIGIT = 3;
+
     public static void main(String[] args) {
         // 정답을 생성한다. (0 ~9 사이의 중복되지 않는 3개의 숫자)
         int answer0;
@@ -15,9 +18,9 @@ public class Main {
         Random random = new Random();
 
         while (true) {
-            answer0 = random.nextInt(10);
-            answer1 = random.nextInt(10);
-            answer2 = random.nextInt(10);
+            answer0 = random.nextInt(MAX_NUMBER); // liternal
+            answer1 = random.nextInt(MAX_NUMBER);
+            answer2 = random.nextInt(MAX_NUMBER);
 
             if (answer0 != answer1 && answer1 != answer2 && answer2 != answer0)
                 break;
@@ -81,7 +84,7 @@ public class Main {
             System.out.println("S:" + strike + " B:" + ball + " O:" + out);
 
             // 3S가 아니면 돌아간다.
-            if (strike == 3)
+            if (strike == DIGIT)
                 break;
         }
 
