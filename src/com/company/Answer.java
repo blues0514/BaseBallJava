@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Random;
 
-public class Answer {
+public class Answer extends Parent {
     private int[] numbers = new int[Main.DIGIT];
 
     void generate() {
@@ -17,15 +17,18 @@ public class Answer {
         }
     }
 
-   void print() {
+    @Override
+    public void print() {
         System.out.println("[결과]");
         for (int i = 0; i < Main.DIGIT; i++)
             System.out.print(numbers[i] + " ");
         System.out.println();
     }
 
+    @Override
     public int at(int i) {
         return numbers[i];
     }
+
 
 }

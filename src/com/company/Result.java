@@ -5,10 +5,6 @@ public class Result {
     private int ball = 0;
     private int out = 0;
 
-    void print() {
-        System.out.println("S:" + strike + " B:" + ball + " O:" + out);
-    }
-
     boolean isGood() {
         return strike == Main.DIGIT;
     }
@@ -26,5 +22,9 @@ public class Result {
             else
                 out++;
         }
+    }
+
+    void print() {
+        System.out.println("S:" + strike + " B:" + ball + " O:" + out);
     }
 }
