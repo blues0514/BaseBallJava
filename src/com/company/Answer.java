@@ -2,9 +2,7 @@ package com.company;
 
 import java.util.Random;
 
-public class Answer {
-    private int[] numbers = new int[Main.DIGIT];
-
+public class Answer extends NumberContainer{
     void generate() {
         Random random = new Random();
 
@@ -17,15 +15,8 @@ public class Answer {
         }
     }
 
-   void print() {
-        System.out.println("[결과]");
-        for (int i = 0; i < Main.DIGIT; i++)
-            System.out.print(numbers[i] + " ");
-        System.out.println();
+    @Override
+    String getPrefix() {
+        return "정답";
     }
-
-    public int at(int i) {
-        return numbers[i];
-    }
-
 }
