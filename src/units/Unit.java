@@ -46,6 +46,4 @@ public abstract class Unit {
         return getUnitName() + " HP: " + getHP() + "회복량 : " + "공격력 : " + getStrength();
     }
 
-
-
 }

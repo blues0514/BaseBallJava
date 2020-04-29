@@ -9,7 +9,6 @@ import units.terran.Medic;
 import java.util.Random;
 
 public class Main{
-
     public static void main(String[] args) {
         Unit m1 = new Marine();
         Unit f1 = new Firebat();
@@ -51,9 +50,9 @@ public class Main{
         }
     }
 
-    private static void upgrade(Unit units) {
-        units.strengthUp();
-        System.out.println("[A]" + units.getStrength());
+    private static void upgrade(Unit unit) {
+        unit.strengthUp();
+        System.out.println("[Upgrade]" + unit.getStrength());
     }
 
 }

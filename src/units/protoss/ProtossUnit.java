@@ -20,7 +20,6 @@ public class ProtossUnit extends Unit {
             damage--;
             shield--;
         }
-
         super.getDamaged(damage);
     }
 
