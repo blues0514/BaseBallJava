@@ -1,8 +1,10 @@
-package com.company;
+package units.protoss;
+
+import etc.Fastable;
 
 public class Zealot extends ProtossUnit implements Fastable {
     public Zealot() {
-        super(5, 5);
+        super(100, 5, 10);
     }
 
     public void balup() {
@@ -17,5 +19,10 @@ public class Zealot extends ProtossUnit implements Fastable {
     @Override
     public int getSpeed() {
         return speed;
+    }
+
+    @Override
+    public String getUnitName() {
+        return "Zealot";
     }
 }

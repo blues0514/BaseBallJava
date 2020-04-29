@@ -1,4 +1,10 @@
-package com.company;
+package etc;
+
+import units.Unit;
+import units.protoss.Zealot;
+import units.terran.Firebat;
+import units.terran.Marine;
+import units.terran.Medic;
 
 import java.util.Random;
 
@@ -8,12 +14,16 @@ public class Main{
         Unit m1 = new Marine();
         Unit f1 = new Firebat();
         Zealot z1 = new Zealot();
+        Medic medic = new Medic();
 
-        getDamagedSeveralTimes(z1, 3);
-        getDamagedSeveralTimes(f1, 3);
+        upgrade(m1);
+        upgrade(f1);
+        upgrade(z1);
 
-        makeItFaster((Marine) m1, 2);
-        makeItFaster(z1, 2);
+        medic.heal(m1);
+        medic.heal(f1);
+        medic.heal(z1);
+
     }
 
     private static void getDamagedSeveralTimes(Unit unit, int times) {
@@ -28,12 +38,7 @@ public class Main{
                 System.out.println("dead");
                 break;
             } else {
-                if (unit instanceof ProtossUnit){
-                    ProtossUnit protossUnit = (ProtossUnit) unit;
-                    System.out.println(unit.getHP() + "/" + protossUnit.getShield());
-                }
-                else
-                    System.out.println(unit.getHP());
+                System.out.println(unit.getStatus());
             }
         }
     }
@@ -45,4 +50,10 @@ public class Main{
             System.out.println("[S]" + fastable.getSpeed());
         }
     }
+
+    private static void upgrade(Unit units) {
+        units.strengthUp();
+        System.out.println("[A]" + units.getStrength());
+    }
+
 }

@@ -1,8 +1,11 @@
-package com.company;
+package units.terran;
 
-public class Marine extends Unit implements Fastable {
+import etc.Fastable;
+import units.Unit;
+
+public class Marine extends Unit implements Fastable{
     public Marine() {
-        super(5);
+        super(5, 10);
     }
 
     void useSteamPack(){
@@ -18,4 +21,10 @@ public class Marine extends Unit implements Fastable {
     public int getSpeed() {
         return speed;
     }
+
+    @Override
+    public String getUnitName() {
+        return "Marin";
+    }
+
 }
