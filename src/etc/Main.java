@@ -22,8 +22,8 @@ public class Main{
         medic.heal(m1);
         medic.heal(f1);
         medic.heal(z1);
-
     }
+
 
     private static void getDamagedSeveralTimes(Unit unit, int times) {
         Random random = new Random();
